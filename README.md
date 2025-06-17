@@ -2,8 +2,6 @@
 
 An interactive Streamlit-based simulator that lets you visualize quantum gate operations on a single qubit — and learn about quantum computing concepts along the way.
 
-![Bloch Sphere Screenshot](link-to-screenshot-if-you-have-one)
-
 ---
 
 ## What This Project Is
