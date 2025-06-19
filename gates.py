@@ -7,23 +7,53 @@ from qiskit.quantum_info import Statevector
 #number_of_qubits = int(input("How many qubits do you wish to play with? "))
 
 #To be made more dynamic after addition of streamlit. But set to 0 for the initial testing phase.
-initial_state = 0 #####
 
-# Create a new circuit with two qubits
-qc = QuantumCircuit(1)
+# Creating an initial circuit of one qubit. I plan to modify this later to allow the user to build a circuit 
+# of their choice with multiple qubits.
+#qc = QuantumCircuit(1)
 
 
-# Add a Hadamard gate to qubit of user's choice.
-qc.x(0)
-#qc.h(0)
+#Functions for applying the gate utilites to the user's gate of choice. 
+def h_gate(qc, qubit=0):
+    '''
+    Apply the hadamard gate.
+    '''
+    qc.h(qubit)
+    return
 
+def not_gate(qc, qubit=0):
+    qc.x(qubit)
+    return
+
+def y_gate(qc, qubit=0):
+    qc.y(qubit)
+    return
+
+def z_gate(qc, qubit=0):
+    qc.z(qubit)
+    return
+
+def s_gate(qc, qubit=0):
+    qc.s(qubit)
+    return
+
+def t_gate(qc, qubit=0):
+    qc.t(qubit)
+    return
+
+def c_not_gate(qc, qubit=0):
+    return
+
+
+
+
+'''
 # Get the statevector.
 state = Statevector.from_instruction(qc)
 
-plot_bloch_multivector(state.data, title="Bloch Sphere via plot_bloch_multivector")
+plot_bloch_multivector(state.data)
 plt.show()
 
-'''
 #Test
 qc.draw("mpl")
 '''
