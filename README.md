@@ -26,7 +26,7 @@ This is not just a simulator — it's a **hands-on learning tool** for beginners
 
 - [Streamlit](https://streamlit.io/) — UI and interaction
 - [Qiskit](https://qiskit.org/) — Quantum simulation and Bloch vector math
-- [Matplotlib / Plotly (optional)] — For Bloch sphere rendering
+- [Matplotlib / Plotly] — For Bloch sphere rendering
 
 ---
 
