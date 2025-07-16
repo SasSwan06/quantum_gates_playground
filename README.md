@@ -31,43 +31,58 @@ This is not just a simulator — it's a **hands-on learning tool** for beginners
 ---
 
 ## How to Run the App
+Follow the steps inorder to run the app.
 
 ### 1. Clone the repository
 
-git clone https://github.com/your-username/quantum-gates-playground.git
+In your terminal, run the following command to clone the repository
+
+```bash
+git clone https://github.com/SasSwan06/quantum_gates_playground.git
+````
+
+### 2. Navigate to the cloned folder
+
+In your terminal, run the following command to navigate to the right folder.
+
+```bash
 cd quantum-gates-playground
+````
 
-### 2. Install dependencies
+### 3. Install dependencies
 
+Run the following command in your terminal in order to install all the essential libraries and tools to successfully run the app.
+
+```bash
 pip install -r requirements.txt
+````
 
-You’ll need:
-qiskit
-streamlit
-matplotlib or plotly (choose one or both)
+### 4. Run the Streamlit app
+Finally, run the following command in your terminal to run the app.
 
-### 3. Run the Streamlit app
+```bash
 streamlit run app.py
+````
 
 ## Learn as You Explore
 This app will gently guide you to learn:
 
 - What each gate does geometrically
 - How Bloch sphere rotations relate to gates
-- Commutativity, reversibility, and fun quirks in quantum logic
+- What the trannsformations look like mathemcatically.
 
 
 ## Educational Goals
 This tool was created to:
 
+- Be a lightweight introduction to quantum gates and transformations.
 - Help students and enthusiasts develop geometric intuition
-- Be a lightweight alternative to full Qiskit notebooks
 - Make exploring quantum concepts fun and interactive
 
 
 ## Contributing
 PRs, feedback, and feature ideas are welcome!
-Please open an issue if you'd like to collaborate or improve the educational material.
+Please open an issue if you'd like to collaborate or improve the educational material; my goal is to make the app as educational as possible and I am open to feedback that will help me with the same.
 
 ## License
 MIT License
