@@ -34,12 +34,49 @@ st.set_page_config(
 st.markdown("<h1 style='text-align: center; font-size: 36px;'>Your Very Own Quantum Playground</h1>", unsafe_allow_html=True)
 st.markdown("<h3 style='text-align: center; font-size: 20px;'>Understand quantum gates conceptually, mathematically, and visually.</h3>", unsafe_allow_html=True)
 
+#TOUR THE IDE - Work In Progress
+# if "tour_step" not in st.session_state:
+#     st.session_state.tour_step = 0
 
+# steps = [
+#     "Welcome to Quantum Playground!",
+#     "Choose your initial qubit state using the dropdown.",
+#     "Apply a quantum gate to see its effect.",
+#     "View the updated qubit on the Bloch sphere.",
+#     "That’s it! Enjoy exploring quantum logic."
+# ]
+
+# st.markdown(f"**Tour Step {st.session_state.tour_step + 1}:** {steps[st.session_state.tour_step]}")
+
+# col1, col2 = st.columns([1, 3])
+# with col1:
+#     if st.button("Next ➡"):
+#        if st.session_state.tour_step < len(steps) - 1:
+#            st.session_state.tour_step += 1
+#with col2:
+#   if st.button("⏹ End Tour"):
+#        st.session_state.tour_step = 0
 
 
 #Expanders introducing key initial concepts.
 #An expander to help the user understand qubits.
+with st.expander("Click here to get an idea about qubits"):
+    st.write('''
+        A qubit is essentially a quantum bit. However, unlike the classical bit, qubits can exist not just as 0 or 1, but also in a superposition of 0 and 1.
+        Essentially, the actual final value of a qubit is probabilistic unless a measurement is made.
+    ''')
 
+#An expander to help the user with the idea of quantum gates.
+with st.expander("Click here to get an idea about quantum gates"):
+    st.write('''
+        A quantum gate is the quantum version of a logic gate from classical computing. Just like you can utilise a logic gate to change the state of a bit and produce the desired output, a quantum gate changes the state of a qubit (quantum bit).
+    ''')
+
+#An expander to help the user understand the bloch sphere.
+with st.expander("Click here to get an idea about the bloch sphere."):
+    st.write('''
+        The Bloch sphere is a visual representation of a single qubit's state. It helps us understand how quantum gates transform the qubit, including changes in probability, phase, and orientation.
+    ''')
 
 
 #Allowing users to choose their initial state - only ket 0 or ket 1 for now.
