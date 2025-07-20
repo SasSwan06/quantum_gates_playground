@@ -15,6 +15,7 @@ import numpy as np
 
 ##todo: help and expander info, initial state choice and vector multiplication to show transformation. 
 #docstrings
+#NOTE: Currently, i am not storing session state, as it would require  me to change the way the matrices are displayed too. However, that is certainly a future goal.
 
 
 #Importing necessary gate apply and gate display funtions.
@@ -31,34 +32,23 @@ st.set_page_config(
 
 # App header and mini explanation
 st.markdown("<h1 style='text-align: center; font-size: 36px;'>Your Very Own Quantum Playground</h1>", unsafe_allow_html=True)
-st.markdown("<h3 style='text-align: center; font-size: 20px;'>Tinker with quantum gates conceptually, mathematically, and visually.</h3>", unsafe_allow_html=True)
+st.markdown("<h3 style='text-align: center; font-size: 20px;'>Understand quantum gates conceptually, mathematically, and visually.</h3>", unsafe_allow_html=True)
+
+
+
 
 #Expanders introducing key initial concepts.
 #An expander to help the user understand qubits.
-with st.expander("Click here to get an idea about qubits"):
-    st.write('''
-        A qubit is essentially a quantum bit. However, unlike the classical bit, qubits can exist not just as 0 or 1, but also in a *superposition* of 0 and 1.
-        Essentially, the actual final value of a qubit is probabilistic unless a measurement is made.
-    ''')
 
-#An expander to help the user with the idea of quantum gates.
-with st.expander("Click here to get an idea about quantum gates"):
-    st.write('''
-        A quantum gate is the quantum version of a logic gate from classical computing. Just like you can utilise a logic gate to change the state of a bit and produce the desired output, a quantum gate changes the state of a qubit (quantum bit).
-    ''')
 
-#An expander to help the user understand the bloch sphere.
-with st.expander("Click here to get an idea about the bloch sphere."):
-    st.write('''
-        The Bloch sphere is a visual representation of a single qubit's state. It helps us understand how quantum gates transform the qubit, including changes in probability, phase, and orientation.
-    ''')
 
 #Allowing users to choose their initial state - only ket 0 or ket 1 for now.
 st.subheader("Choose initial state:")
 initial_choice = st.radio(
     "Choose initial state (hidden label)",
     ["|0⟩", "|1⟩"],
-    label_visibility="collapsed"
+    label_visibility="collapsed",
+    help="Pick the starting position of your qubit on the Bloch sphere."
 )
 
 #Initiating a column-like UI for the users.
@@ -75,7 +65,7 @@ with column1:
     status = qc.draw(output="mpl")
 
     # Gate selection
-    gate = st.selectbox("Choose a gate to apply:", ["H", "X", "Y", "Z", "S", "T"])
+    gate = st.selectbox("Choose a gate to apply:", ["H", "X", "Y", "Z", "S", "T"], help="Select a gate to apply to the qubit. Each gate rotates the qubit in a unique way.")
     apply_button = st.button("Apply Gate")
 
     # Apply the selected gate
@@ -173,8 +163,8 @@ with column1:
 #Centre Column - A glimpse of the actual algebra going on in the background.
 with column2:
     st.header("The Math Behind It")
-    st.subheader("Initial State: Ket 0")
-    display_initial_state()
+    st.subheader(f"Initial State: {initial_choice}")
+    display_initial_state(initial_choice)
 
     if apply_button:
         if gate == "H":
@@ -231,6 +221,10 @@ with column3:
     st.header("Bloch Sphere Visualization")
     # Show Bloch Sphere
     state = Statevector.from_instruction(qc)
-    fig = plot_bloch_multivector(state.data)
-    fig.set_size_inches(4, 4)
-    st.pyplot(fig)
+    try:
+        fig = plot_bloch_multivector(state.data)
+        fig.set_size_inches(4, 4)
+        st.pyplot(fig)
+    except Exception as e:
+        st.error("There has been an issue with the Bloch Sphere rendering.")
+        st.exception(e)

@@ -8,17 +8,15 @@ An interactive Streamlit-based simulator that lets you visualize quantum gate op
 
 This is not just a simulator — it's a **hands-on learning tool** for beginners in quantum computing. Choose a qubit state, apply quantum gates like Hadamard, Pauli-X, or phase gates, and watch how your qubit transforms on the Bloch sphere.
 
-> Curious why applying Hadamard twice gives you back your original state? You'll find out here.
-
 ---
 
 ## Features
 
-- ✅ Choose an initial qubit state
-- ✅ Apply gates like H, X, Z, S, T, etc.
-- ✅ Visualize qubit state changes on a Bloch sphere
-- ✅ Get educational insights into what each gate does
-- ✅ Try suggested gate combinations and understand the outcomes
+-  Choose an initial qubit state
+-  Apply gates like H, X, Z, S, T, etc.
+-  Visualize qubit state changes on a Bloch sphere
+-  Get educational insights into what each gate does
+-  Try suggested gate combinations and understand the outcomes
 
 ---
 
@@ -81,7 +79,7 @@ This tool was created to:
 
 
 ## Contributing
-PRs, feedback, and feature ideas are welcome!
+PRs, feedback, and feature ideas are welcome! Being a beginner myself, I'd especially appreciate suggestions to make the explanations clearer or more accurate.
 Please open an issue if you'd like to collaborate or improve the educational material; my goal is to make the app as educational as possible and I am open to feedback that will help me with the same.
 
 ## License

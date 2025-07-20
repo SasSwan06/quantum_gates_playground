@@ -4,10 +4,11 @@ import numpy as np
 from gates import array_to_latex
 
 #Gate Display Functions.
-def display_initial_state():
-    initial_state = np.array([[1], [0]]) #Initial state - ket 0
-    latex_matrix = array_to_latex(initial_state)
-    st.latex(latex_matrix)
+def display_initial_state(initial_choice):
+    if initial_choice == "|0⟩":
+        st.latex(r"\begin{bmatrix}1 \\ 0\end{bmatrix}")
+    else:
+        st.latex(r"\begin{bmatrix}0 \\ 1\end{bmatrix}")
 
 def display_h_gate():
     '''
